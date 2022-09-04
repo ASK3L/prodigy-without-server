@@ -1,0 +1,51 @@
+<div
+  class="grid justify-items-center bg-[url('assets/images/bg-login.jpg')] bg-cover bg-no-repeat py-28"
+>
+  <form
+    class="grid-flow-rows gap-3 grid shadow-2xl px-10 py-10 bg-[#e6e6e68c] rounded-md"
+    [formGroup]="loginForm"
+  >
+    <p class="text-center text-xl">Sign In</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        placeholder="Ex. pat@example.com"
+      />
+      <mat-error
+        *ngIf="email?.hasError('email') && !email?.hasError('required')"
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="email?.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+      type="password"
+        matInput
+        placeholder="*******"
+        value=""
+        formControlName="password"
+      />
+    </mat-form-field>
+    <a href="" class="italic">Forgot Password?</a>
+    <button
+      mat-stroked-button
+      class="bg-[#34354b] text-white"
+      (click)="login()"
+    >
+      Login
+    </button>
+    <mat-divider></mat-divider>
+    <p>New to Prodigy Courier?</p>
+    <a href="" routerLink="/register" mat-flat-button color="accent"
+      >Create your Prodigy Courier Account</a
+    >
+  </form>
+</div>

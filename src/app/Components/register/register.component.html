@@ -1,0 +1,131 @@
+<div>
+  <div class="flex justify-around">
+    <div class="hidden lg:block max-w-fit max-h-[700px]">
+      <img
+        src="assets/images/background-image.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="py-10 col-span-2 justify-self-center">
+      <h1 class="text-center">Get Started</h1>
+      <div>
+        <ng-container [ngSwitch]="stepperOrientation | async">
+          <div *ngSwitchCase="'horizontal'"></div>
+          <div *ngSwitchCase="'vertical'"></div>
+        </ng-container>
+
+        <mat-stepper [orientation]="(stepperOrientation | async)!">
+          <mat-step [stepControl]="firstFormGroup" label="Personal Details">
+            <form
+              [formGroup]="firstFormGroup"
+              class="grid grid-cols-2 grid-flow-row gap-5"
+            >
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="col-span-2">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. pat@example.com" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Re-enter Password</mat-label>
+                <input matInput />
+              </mat-form-field>
+              <div>
+                <button mat-stroked-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" label="Additional Details">
+            <form
+              [formGroup]="secondFormGroup"
+              class="grid grid-rows-2 gap-5 grid-cols-2"
+            >
+              <mat-form-field appearance="outline">
+                <mat-label>Mobile Phone</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Home Phone (Optional)</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>ID Type</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>ID Number</mat-label>
+                <input matInput placeholder="Ex. St.Catherine" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Preferred pickup location</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-stroked-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="thirdFormGroup" label="Mailing Address">
+            <form
+              [formGroup]="thirdFormGroup"
+              class="grid grid-rows-2 gap-5 grid-cols-2"
+            >
+              <mat-form-field appearance="outline" class="col-span-2">
+                <mat-label>Street Address</mat-label>
+                <textarea matInput placeholder="Ex. 100 Main St">
+  1600 Amphitheatre Pkwy</textarea
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="col-span-2">
+                <mat-label>Address 2</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>City/Town</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Parish</mat-label>
+                <input matInput placeholder="Ex. St.Catherine" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Preferred pickup location</mat-label>
+                <input matInput placeholder="Ex. Portmore" />
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Thank you for signing up.</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button mat-button>Back</button>
+            </div>
+          </mat-step>
+        </mat-stepper>
+      </div>
+    </div>
+  </div>
+</div>

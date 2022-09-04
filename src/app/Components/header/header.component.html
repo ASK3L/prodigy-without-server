@@ -1,0 +1,43 @@
+<div class="relative">
+  <header
+    class="header block bg-[#2b2d42] md:bg-transparent md:fixed py-2 transition-all w-full z-10"
+  >
+    <div
+      class="grid grid-cols-2 lg:grid-cols-3 items-center gap-3 text-white justify-items-center"
+    >
+      <a
+        routerLink="/home"
+        class="rounded-full shadow-xl bg-white max-w-[50px] md:max-w-[80px]"
+      >
+        <img src="/assets/images/prodigy-courier.png" alt="" />
+      </a>
+
+      <nav class="hidden lg:block">
+        <ul class="hero-links lg:flex">
+          <li><a mat-button href="">Home</a></li>
+          <li><a mat-button href="">About</a></li>
+          <li><a mat-button href="">Tracking</a></li>
+          <li><a mat-button href="">Services</a></li>
+          <li><a mat-button href="">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hidden lg:flex justify-self-center items-center gap-2">
+        <a
+          routerLink="/login"
+          class="px-5 bg-[#D2AF8B] text-white hover:-translate-y-1.5 hover:transition-all"
+          mat-flat-button
+        >
+          Login</a
+        >
+        <a href="" routerLink="/register">Sign Up</a>
+      </div>
+
+      <div class="md:block lg:hidden">
+        <button mat-icon-button color="accent">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>

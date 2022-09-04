@@ -1,0 +1,13 @@
+<div
+  class="grid grid-flow-row md:grid-flow-row md:grid-cols-2 lg:grid-cols-3 w-3/6 lg:w-4/6 mx-auto gap-8 p-2"
+>
+  <div *ngFor="let card of data">
+    <a [href]="card.url">
+      <img [src]="card.img" alt="" />
+    </a>
+    <br />
+    <!-- <div class="text-center font-sans text-xl mb-10">
+      {{ card.name }}
+    </div> -->
+  </div>
+</div>
