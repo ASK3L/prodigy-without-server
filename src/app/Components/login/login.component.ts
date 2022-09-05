@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   login() {
     if(this.loginForm.valid){
-      this.auth.login(this.loginForm.value).subscribe((result)=>{
+      this.auth.login(this.loginForm.value).subscribe((result: any)=>{
         localStorage.setItem('admin', JSON.stringify(result));
         this.router.navigateByUrl('/admin');
       })  

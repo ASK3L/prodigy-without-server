@@ -25,6 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { SlideDescComponent } from './Components/home/slide/slide-desc/slide-desc.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AdminComponent } from './Components/admin/admin.component';
     GridComponent,
     SlideDescComponent,
     AdminComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

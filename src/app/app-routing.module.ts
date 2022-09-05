@@ -5,13 +5,15 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { RegisterComponent } from './Components/register/register.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { AuthGaurdGuard } from './guards/auth.guard';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  {path: 'admin' , component : AdminComponent , canActivate:[AuthGaurdGuard]}
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdGuard] },
 ];
 
 @NgModule({
