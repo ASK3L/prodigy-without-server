@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,28 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
-  loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('' , Validators.required),
-  });
+  data = {
+    email: '',
+    password: '',
+  };
 
-  get email() {
-    return this.loginForm.get('email');
-  }
-  get password() {
-    return this.loginForm.get('password');
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
-  login() {
-    if(this.loginForm.valid){
-      this.auth.login(this.loginForm.value).subscribe((result: any)=>{
-        localStorage.setItem('admin', JSON.stringify(result));
-        this.router.navigateByUrl('/admin');
-      })  
-    } 
-    
+  
+  onSubmit(): void {
+    this.authService.login(this.data).subscribe((res) => {
+      if (res.status === 'success') this.router.navigate(['/admin']);
+    });
   }
-
 }
